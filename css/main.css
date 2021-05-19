@@ -1,0 +1,52 @@
+/* 실제 콘텐츠 영역을 잡아주는 inner입니다 */
+
+.inner {
+    /* 너비 값을 주고 margin의 좌우값을 auto로 설정하여 본 요소를 가운데 정렬합니다 */
+    width: 60vw;
+    margin: 0 auto;
+    /* scrollToTop 요소가 잘 작동하는지 확인하고자 */
+    /* 페이지를 길게 만들기 위해 inner에 높이를 지정했습니다 */
+    height: 3000px;
+}
+
+/* 버튼 */
+
+/* 페이지 내 모든 버튼 요소는 기본적으로 클래스 속성에 btn을 갖도록 합니다 */
+
+.btn {
+    cursor: pointer;
+}
+
+/* 둥둥 뜨는 애니메이션 */
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+/* 페이지 내에 scrollToTop 기능을 갖는 모든 요소는 둥둥이로 만듭니다 */
+
+.scrollToTop {
+    display: inline-block;
+    animation: float 6s ease infinite;
+    width: 100px;
+    /* 뷰포트(화면) 안에 보이게 하고 싶다면 position: fixed로 설정 */
+    position: fixed;
+    /* 뷰포트 안에서 가장 아래에 위치하게 합니다 */
+    bottom: 0;
+    /* 콘텐츠가 보이는 영역(.inner)을 60vw로 잡았으므로 */
+    /* scrollToTop 버튼이 뷰포트 맨 오른쪽에 위치하도록 하려면 */
+    /* 화면을 기준으로 오른쪽은 (100vw - 60vw) / 2 = 20vw만큼 떨어져 있어야 합니다   */
+    right: 20vw;
+    /* 기본적으로 안보이게 합니다 */
+    opacity: 0;
+    /* 스크롤 위치에 따라 opacity값이 바뀔 때 자연스럽게 변하도록 합니다 */
+    transition: .4s;
+}
